@@ -19,7 +19,6 @@ public class Algorithm8 {
         for(int i=0; i < arr.length; i++) {
             if(arr[i] == 32) {
                 idx = 0;
-                continue;
             } else {
                 if (idx % 2 == 0) {
                     arr[i] = Character.toUpperCase(arr[i]);
