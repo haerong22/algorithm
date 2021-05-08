@@ -14,7 +14,11 @@ public class Algorithm6 {
 
     public static String solution(String phone_number) {
         String answer = "";
-        answer += phone_number.replace(phone_number.substring(0, phone_number.length()-4), "*".repeat(Math.max(0, phone_number.length() - 4)));
+        StringBuilder star = new StringBuilder();
+        for(int i=0; i<phone_number.length()-4;i++) {
+            star.append("*");
+        }
+        answer += phone_number.replace(phone_number.substring(0, phone_number.length()-4), star.toString());
         return answer;
     }
 }
