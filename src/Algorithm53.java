@@ -16,8 +16,8 @@ public class Algorithm53 {
     }
 
     public static long solution(int price, int money, int count) {
-        long total = price * ((long) (1 + count) * count / 2) ;
-        return total - money >= 0 ? total - money : 0;
+        long result = price * ((long) (1 + count) * count / 2) - money;
+        return result >= 0 ? result : 0;
     }
 
 }
