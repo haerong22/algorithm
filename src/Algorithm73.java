@@ -14,8 +14,6 @@ import java.util.*;
 
 public class Algorithm73 {
 
-    public static List<int[]> arrayList = new ArrayList<>();
-
     public static void main(String[] args) {
         String[] record = {
                 "Enter uid1234 Muzi",
@@ -47,6 +45,5 @@ public class Algorithm73 {
         }
         return result;
     }
-
 }
 
