@@ -2,47 +2,29 @@ import java.util.*;
 
 /**
  * https://programmers.co.kr/
- * 신고 결과 받기
+ * 모음 사전
+ *
+ * 사전에 알파벳 모음 'A', 'E', 'I', 'O', 'U'만을 사용하여 만들 수 있는, 길이 5 이하의 모든 단어가 수록되어 있습니다.
+ * 사전에서 첫 번째 단어는 "A"이고, 그다음은 "AA"이며, 마지막 단어는 "UUUUU"입니다.
+ * 단어 하나 word가 매개변수로 주어질 때, 이 단어가 사전에서 몇 번째 단어인지 return 하도록 solution 함수를 완성해주세요.
  */
 
 public class Algorithm78 {
 
     public static void main(String[] args) {
-        String[] id_list = {"muzi", "frodo", "apeach", "neo"};
-        String[] report = {"muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi"};
-
-        System.out.println(Arrays.toString(solution(id_list, report, 2)));
+        String word = "EIO";
+        System.out.println(solution(word));
     }
 
-    public static class Report {
-        int reportedCount = 0;
-        List<String> reportList = new ArrayList<>();
-    }
+    public static int solution(String word) {
+        int answer = 0;
+        int last = 3905;
+        String index = "AEIOU";
 
-    public static int[] solution(String[] id_list, String[] report, int k) {
-        Set<String> set = new HashSet<>(Arrays.asList(report));
-
-        HashMap<String, Report> map = new HashMap<>();
-
-        for (String id : id_list) {
-            map.put(id, new Report());
+        for (String s : word.split("")) {
+            answer += index.indexOf(s) * (last /= 5) + 1;
         }
 
-        for (String s : set) {
-            String[] split = s.split(" ");
-            map.get(split[0]).reportList.add(split[1]);
-            map.get(split[1]).reportedCount++;
-        }
-
-        int[] answer = new int[id_list.length];
-        for (int i = 0; i < id_list.length; i++) {
-            String id = id_list[i];
-            for (String s : map.get(id).reportList) {
-                if (map.get(s).reportedCount >= k) {
-                    answer[i]++;
-                }
-            }
-        }
         return answer;
     }
 }
