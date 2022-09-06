@@ -37,40 +37,40 @@ public class P_10828 {
 
         System.out.println(result);
     }
-}
 
-class Stack {
-    private final int[] arr;
-    private int index;
+    static class Stack {
+        private final int[] arr;
+        private int index;
 
-    public Stack(int size) {
-        this.arr = new int[size];
-        this.index = 0;
-    }
+        public Stack(int size) {
+            this.arr = new int[size];
+            this.index = 0;
+        }
 
-    public void push(int x) {
-        arr[index] = x;
-        index++;
-    }
+        public void push(int x) {
+            arr[index] = x;
+            index++;
+        }
 
-    public int pop() {
-        if (index == 0) return -1;
+        public int pop() {
+            if (index == 0) return -1;
 
-        int pop = arr[--index];
-        arr[index] = 0;
+            int pop = arr[--index];
+            arr[index] = 0;
 
-        return pop;
-    }
+            return pop;
+        }
 
-    public int size() {
-        return index;
-    }
+        public int size() {
+            return index;
+        }
 
-    public int empty() {
-        return index == 0 ? 1 : 0;
-    }
+        public int empty() {
+            return index == 0 ? 1 : 0;
+        }
 
-    public int top() {
-        return index == 0 ? -1 : arr[index - 1];
+        public int top() {
+            return index == 0 ? -1 : arr[index - 1];
+        }
     }
 }
