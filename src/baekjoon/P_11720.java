@@ -19,10 +19,10 @@ public class P_11720 {
 
         int N = Integer.parseInt(br.readLine());
 
-        StringTokenizer st = new StringTokenizer(br.readLine());
+        String[] split = br.readLine().split("");
 
         for (int i = 0; i < N; i++) {
-            result += Integer.parseInt(st.nextToken());
+            result += Integer.parseInt(split[i]);
         }
 
         System.out.println(result);
