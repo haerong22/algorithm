@@ -31,7 +31,7 @@ public class Algorithm139 {
         }
 
         public int solution(int N, int[][] road, int K) {
-            int answer = 1;
+            int answer = 0;
 
             List<List<Town>> ways = new ArrayList<>();
 
@@ -41,7 +41,7 @@ public class Algorithm139 {
 
             for (int[] r : road) {
                 ways.get(r[0]).add(new Town(r[0], r[1], r[2]));
-                ways.get(r[1]).add(new Town(r[1], r[2], r[2]));
+                ways.get(r[1]).add(new Town(r[1], r[0], r[2]));
             }
 
             Queue<Town> queue = new LinkedList<>(ways.get(1));
